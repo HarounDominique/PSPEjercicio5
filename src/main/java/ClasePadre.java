@@ -12,7 +12,7 @@ public class ClasePadre {
 
         String parametro = scan.nextLine();
 
-        File directorio = new File("C:\\Users\\a21dominicohl\\IdeaProjects\\PSPEjercicio5\\target\\classes");
+        File directorio = new File("D:\\IntelliJ_Projects\\PSPEjercicio5\\target\\classes");
 
         ProcessBuilder pb = new ProcessBuilder("java", "ClaseHija", parametro);
 
@@ -20,8 +20,13 @@ public class ClasePadre {
 
         Process proceso = pb.start();
 
-        proceso.waitFor();
+        int exitValue = proceso.waitFor();
 
+        if(exitValue==1){
+            System.out.println(args[0]);
 
+        }else{
+            System.out.println("No se ha introducido ningún parámetro.");
+        }
     }
 }
